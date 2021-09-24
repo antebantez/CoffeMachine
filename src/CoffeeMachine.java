@@ -20,7 +20,7 @@ public class CoffeeMachine {
     }
 
     public void coffeeMachine() {
-        money = 0;
+        setMoney();
         System.out.println("----------------------------------------------");
         System.out.println("||1.          Status of ingredients         ||");
         System.out.println("||2.            Fill ingredients            ||");
@@ -75,8 +75,22 @@ public class CoffeeMachine {
         System.out.println("||                            'Y' or 'N'                          ||");
         System.out.println("--------------------------------------------------------------------");
         if (minScanner.next().equalsIgnoreCase("y")) {
+            try {
+                Thread.sleep(500);
+                System.out.print("♥   ");
+                Thread.sleep(500);
+                System.out.print("♥   ");
+                Thread.sleep(500);
+                System.out.print("♥   ");
+                Thread.sleep(500);
+                System.out.print("♥   ");
+                Thread.sleep(500);
+                System.out.print("♥   ");
+            } catch (InterruptedException e) {
+                System.out.println("Error!\nTry again!");
+                coffeeMachine();
+            }
             getIngredient();
-            System.out.println(" ");
             coffeeMachine();
         } else if (minScanner.next().equalsIgnoreCase("n")) {
             System.out.println("Thank you, Come again!");
@@ -97,12 +111,20 @@ public class CoffeeMachine {
             water -= 0.3;
             coffeePowder -= 50;
             coffeeCount++;
-            for (int i = 0; i < 15; i++) {
-                try {
-                    Thread.sleep(250);
-                    System.out.print("♥♥♥♥");
-                } catch (InterruptedException e) {
-                }
+            try {
+                Thread.sleep(500);
+                System.out.print("♥   ");
+                Thread.sleep(500);
+                System.out.print("♥   ");
+                Thread.sleep(500);
+                System.out.print("♥   ");
+                Thread.sleep(500);
+                System.out.print("♥   ");
+                Thread.sleep(500);
+                System.out.print("♥   ");
+            } catch (InterruptedException e) {
+                System.out.println("Error!\nTry again!");
+                coffeeMachine();
             }
 
             System.out.println("\nYour black coffee is ready!");
@@ -123,12 +145,20 @@ public class CoffeeMachine {
             System.out.println(" ");
             System.out.println("Taking 10cl of milk..\nTaking 20cl of water..\nTaking 100g of coffee powder!");
             System.out.println("BZRZRRZRZRRZR");
-            for (int i = 0; i < 15; i++) {
-                try {
-                    Thread.sleep(250);
-                    System.out.print("♥♥♥♥");
-                } catch (InterruptedException e) {
-                }
+            try {
+                Thread.sleep(500);
+                System.out.print("♥   ");
+                Thread.sleep(500);
+                System.out.print("♥   ");
+                Thread.sleep(500);
+                System.out.print("♥   ");
+                Thread.sleep(500);
+                System.out.print("♥   ");
+                Thread.sleep(500);
+                System.out.print("♥   ");
+            } catch (InterruptedException e) {
+                System.out.println("Error!\nTry again!");
+                coffeeMachine();
             }
             milk -= 0.1;
             water -= 0.2;
@@ -140,6 +170,7 @@ public class CoffeeMachine {
         } else {
             System.out.println("You can't afford a coffee with milk!");
             System.out.println("Insert at least " + (15 - money) + " kr!");
+            money += minScanner.nextInt();
             milkCoffee();
         }
     }
@@ -150,12 +181,20 @@ public class CoffeeMachine {
             System.out.println(" ");
             System.out.println("Taking 15cl of water\nTaking 15cl of milk\nTaking 50g of cocoa powder!");
             System.out.println("BZRZRRZRZRRZR");
-            for (int i = 0; i < 15; i++) {
-                try {
-                    Thread.sleep(250);
-                    System.out.print("♥♥♥♥");
-                } catch (InterruptedException e) {
-                }
+            try {
+                Thread.sleep(500);
+                System.out.print("♥   ");
+                Thread.sleep(500);
+                System.out.print("♥   ");
+                Thread.sleep(500);
+                System.out.print("♥   ");
+                Thread.sleep(500);
+                System.out.print("♥   ");
+                Thread.sleep(500);
+                System.out.print("♥   ");
+            } catch (InterruptedException e) {
+                System.out.println("Error!\nTry again!");
+                coffeeMachine();
             }
             water -= 0.15;
             milk -= 0.15;
@@ -163,12 +202,12 @@ public class CoffeeMachine {
             coffeeCount++;
             System.out.println("\nYour Hot chocolate is ready!");
             System.out.println("You get " + (money - 20) + " kr in return");
-            coffeeMachine();
         } else {
             System.out.println("You can't afford a Hot chocolate");
             System.out.println("Insert at least " + (20 - money) + " kr!");
-            coffeeMachine();
+            money += minScanner.nextInt();
         }
+        coffeeMachine();
     }
 
     private void makeCoffee() {
@@ -205,19 +244,27 @@ public class CoffeeMachine {
         milk = 0;
         water = 0;
         System.out.println("Cleaning the machine...");
-        for (int i = 0; i < 15; i++) {
-            try {
-                Thread.sleep(250);
-                System.out.print("♥♥♥♥");
-            } catch (InterruptedException e) {
-            }
+        try {
+            Thread.sleep(500);
+            System.out.print("♥   ");
+            Thread.sleep(500);
+            System.out.print("♥   ");
+            Thread.sleep(500);
+            System.out.print("♥   ");
+            Thread.sleep(500);
+            System.out.print("♥   ");
+            Thread.sleep(500);
+            System.out.print("♥   ");
+        } catch (InterruptedException e) {
+            System.out.println("Error!\nTry again!");
+            coffeeMachine();
         }
         System.out.println("\nCompleted cleaning.");
 
     }
 
     private void getIngredient() {
-        System.out.println("Current Status:");
+        System.out.println("\nCurrent Status:");
         System.out.println("Available Coffee Powder ( Grams ) " + coffeePowder);
         System.out.println("Available Cocoa Powder ( Grams ) " + cocoaPowder);
         System.out.println("Available Milk ( Liter ) " + milk);
@@ -226,16 +273,31 @@ public class CoffeeMachine {
         coffeeMachine();
     }
 
+    public void setMoney() {
+        this.money = 0;
+    }
+
     private void setIngredient() {
         if (milk < 1 || coffeePowder < 500 || cocoaPowder < 500 || water < 2) {
             System.out.println("Filling the machine...");
-            for (int i = 0; i < 15; i++) {
-                try {
-                    Thread.sleep(250);
-                    System.out.print("♥♥♥♥");
-                } catch (InterruptedException e) {
-                }
+
+            try {
+                Thread.sleep(500);
+                System.out.print("♥   ");
+                Thread.sleep(500);
+                System.out.print("♥   ");
+                Thread.sleep(500);
+                System.out.print("♥   ");
+                Thread.sleep(500);
+                System.out.print("♥   ");
+                Thread.sleep(500);
+                System.out.print("♥   ");
+            } catch (InterruptedException e) {
+                System.out.println("Error!\nTry again!");
+                coffeeMachine();
             }
+
+
             System.out.println("\nFilling Complete.");
             water = 2;
             milk = 1;
