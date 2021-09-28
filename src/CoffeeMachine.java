@@ -206,6 +206,7 @@ public class CoffeeMachine {
             System.out.println("You can't afford a Hot chocolate");
             System.out.println("Insert at least " + (20 - money) + " kr!");
             money += minScanner.nextInt();
+            hotChocolate();
         }
         coffeeMachine();
     }
